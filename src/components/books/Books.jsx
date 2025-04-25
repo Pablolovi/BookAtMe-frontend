@@ -21,7 +21,7 @@ const Books = () => {
     }, [query]);
   
     return (
-      <div className={Styles.container}>
+      <div className={styles.container}>
         <h1>Libros</h1>
         <input
           type="text"
@@ -29,7 +29,7 @@ const Books = () => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar libros..."
         />
-        {loading && <p className={Styles.loading}>Cargando...</p>}
+        {loading && <p className={styles.loading}>Cargando...</p>}
   
         {/* Mostrar resultados de búsqueda */}
         <div>

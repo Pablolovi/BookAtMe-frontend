@@ -12,7 +12,7 @@ const Profile = () => {
     favoriteGenres: [],
   });
   const [isEditing, setIsEditing] = useState(false);
-
+  console.log(formData.favoriteGenres);
   // Cargar datos del usuario cuando se monta el componente
   useEffect(() => {
     if (user) {
@@ -21,7 +21,7 @@ const Profile = () => {
         email: user.email,
         bio: user.bio,
         avatar: user.avatar,
-        favoriteGenres: user.favoriteGenres || [],
+        favoriteGenres: user.favoriteGenres || [''],
       });
     }
   }, [user]);
@@ -104,7 +104,7 @@ const Profile = () => {
               <input
                 type="text"
                 name="favoriteGenres"
-                value={formData.favoriteGenres.join(', ')}
+                value={formData?.favoriteGenres?.join(', ')}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
@@ -125,8 +125,8 @@ const Profile = () => {
             <p><strong>Nombre:</strong> {user.name}</p>
             <p><strong>Correo electrónico:</strong> {user.email}</p>
             <p><strong>Biografía:</strong> {user.bio}</p>
-            <p><strong>Géneros favoritos:</strong> {user.favoriteGenres.join(', ')}</p>
-            <button onClick={toggleEdit}>Editar Perfil</button>
+            <p><strong>Géneros favoritos:</strong> {user?.favoriteGenres?.join(', ') ||'Fantasy'}</p>
+            <button onClick={toggleEdit}>Editar Perfil</button> 
           </div>
         )}
       </div>

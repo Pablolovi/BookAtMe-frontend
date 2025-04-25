@@ -8,6 +8,7 @@ import BooksPage from './pages/BooksPage';
 import MyBooksPage from './pages/MyBooksPage';
 import TasksPage from './pages/TasksPage';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
         <Route path="/my-books" element={<MyBooksPage />} />
         <Route path="/tasks" element={<TasksPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

@@ -20,7 +20,6 @@ const Home = () => {
 
   return (
     <div className="home-body">
-      <Navbar />
       <main className="home-main">
         {/* Hero Section */}
         <section className="hero">
