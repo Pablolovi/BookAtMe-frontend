@@ -22,7 +22,12 @@ const MyBooks = () => {
 
   const loadBooks = async () => {
     const data = await getUserBooks();
+    if (Array.isArray(data)) {
     setBooks(data);
+    } else {
+    console.error("❌ Respuesta no válida de libros:", data);
+    setBooks([]);
+    }
   };
 
   const handleChange = (e) => {
@@ -44,7 +49,7 @@ const MyBooks = () => {
   const handleEdit = (book) => {
     setFormData({
       title: book.title,
-      author_name: book.author_name,
+      author_name: book.author_name[0] || '',
       totalPages: book.totalPages,
       status: book.status,
     });

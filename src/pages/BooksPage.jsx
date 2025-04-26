@@ -25,7 +25,7 @@ const Books = () => {
       // Adaptar los campos al formato que tu backend espera
       await saveBook({
         title: book.title,
-        author: book.author,
+        author_name: book.author_name,
         totalPages: book.totalPages,
         status: 'pendiente', // Puedes hacer esto dinámico si lo deseas
       });
@@ -55,7 +55,7 @@ const Books = () => {
               <li key={book.isbn}>
                 <img src={book.cover} alt={book.title} />
                 <h3>{book.title}</h3>
-                <p>Autor: {book.author}</p>
+                <p>Autor: {book.author_name}</p>
                 <p>Año: {book.year}</p>
                 <p>Géneros: {book.subjects.join(', ')}</p>
                 <button onClick={() => handleSaveBook(book)}>Guardar</button>
