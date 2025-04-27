@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { getProfile } from '../services/authService';
+import { getProfile, login } from '../services/authService';
 
 export const AuthContext = createContext();
 
@@ -13,10 +13,10 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const userData = await getProfile();
-      setUser(userData);
+      const userData = await getProfile();  // Obtén el perfil del usuario usando el token
+      setUser(userData);  // Almacena el perfil del usuario
     } catch (error) {
-      setUser(null); // No hay sesión activa
+      setUser(null);  // No hay sesión activa si hay un error (sin token o token inválido)
     } finally {
       setLoading(false);
     }
@@ -24,17 +24,18 @@ export const AuthProvider = ({ children }) => {
 
   // Función para cerrar sesión (logout)
   const logout = () => {
-    setUser(null); // Limpiar el estado del usuario
-    // Aquí podrías agregar lógica para limpiar el almacenamiento local (localStorage, sessionStorage)
+    setUser(null);  // Limpiar el estado del usuario
+    localStorage.removeItem('token');  // Eliminar el token de localStorage
   };
 
   useEffect(() => {
-    fetchUser();
+    fetchUser();  // Recupera el perfil del usuario cuando se monta el componente
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, loading, logout }}>
+    <AuthContext.Provider value={{ user, setUser, loading, logout, login }}>
       {children}
     </AuthContext.Provider>
   );
 };
+

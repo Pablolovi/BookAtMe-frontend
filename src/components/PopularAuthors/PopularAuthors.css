@@ -1,0 +1,81 @@
+.popular-authors {
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+.popular-authors h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.authors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.author-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-alt-color);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.author-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+}
+
+.author-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.author-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.author-card p {
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 1rem;
+}
+
+.author-card strong {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.book-covers {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.book-covers img {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.book-covers img:hover {
+    transform: scale(1.05);
+}

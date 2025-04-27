@@ -4,7 +4,7 @@ import api from './api'; // Tu configuración de axios
 // ✅ Función para obtener los libros del usuario
 export const getUserBooks = async () => {
   try {
-    const response = await api.get('/api/books');  // Ruta protegida
+    const response = await api.get('/books');  // Ruta protegida
     console.log('📚 Libros del usuario:', response.data);
 
     // ✅ Verificamos que la respuesta sea un array
@@ -24,7 +24,7 @@ export const getUserBooks = async () => {
 // ✅ Buscar libros externos (OpenLibrary)
 export const searchForExternalBooks = async (query) => {
   try {
-    const response = await api.get(`/api/books/search-external?query=${query}`);
+    const response = await api.get(`/books/search-external?query=${query}`);
     return response.data.map(book => ({
       title: book.title,
       author_name: book.author_name ? book.author_name[0] : 'Autor desconocido',
@@ -51,7 +51,7 @@ export const addUserBook = async (bookData) => {
         : [bookData.author_name],
     };
 
-    const response = await api.post('/api/books', payload);
+    const response = await api.post('/books', payload);
     return response.data;
   } catch (error) {
     console.error('❌ Error al agregar el libro:', error);
@@ -62,7 +62,7 @@ export const addUserBook = async (bookData) => {
 // ✅ (Opción redundante con addUserBook)
 export const saveBook = async (bookData) => {
   try {
-    const response = await api.post('/api/books', bookData);
+    const response = await api.post('/books', bookData);
     return response.data;
   } catch (error) {
     console.error('❌ Error al guardar el libro:', error);
@@ -81,7 +81,7 @@ export const updateUserBook = async (id, bookData) => {
         : [bookData.author_name],
     };
 
-    const response = await api.put(`/api/books/${id}`, payload);
+    const response = await api.put(`/books/${id}`, payload);
     return response.data;
   } catch (error) {
     console.error('❌ Error al actualizar el libro:', error);
@@ -92,9 +92,27 @@ export const updateUserBook = async (id, bookData) => {
 // ✅ Función para eliminar un libro
 export const deleteUserBook = async (id) => {
   try {
-    await api.delete(`/api/books/${id}`);
+    await api.delete(`/books/${id}`);
   } catch (error) {
     console.error('❌ Error al eliminar el libro:', error);
     throw error;
   }
 };
+
+export async function searchBooksByCategory(category) {
+  try {
+    const response = await fetch(`https://openlibrary.org/subjects/${category.toLowerCase()}.json`);
+    const data = await response.json();
+    return data.works.map(work => ({
+      title: work.title,
+      author: work.authors?.[0]?.name || 'Autor desconocido',
+      cover: work.cover_id
+      ? `https://covers.openlibrary.org/b/id/${work.cover_id}-M.jpg`
+      : '/images/default-book-cover.jpg',
+      subjects: work.subject || [],
+    }));
+  } catch (error) {
+    console.error('Error buscando libros por categoría:', error);
+    return [];
+  }
+}

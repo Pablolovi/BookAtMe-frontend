@@ -1,4 +1,5 @@
 import React from 'react';
+import './RecommendedBooks.css';
 
 const recommendedBooks = [
   {

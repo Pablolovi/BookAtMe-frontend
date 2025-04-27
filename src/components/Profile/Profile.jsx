@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { updateUserProfile } from '../services/authService';  // Asegúrate de tener la función para actualizar el perfil
+import { AuthContext } from '../../context/AuthContext';
+import { updateUserProfile } from '../../services/authService';
+import './Profile.css';
 
 const Profile = () => {
   const { user, loading } = useContext(AuthContext);
@@ -104,15 +105,14 @@ const Profile = () => {
               <input
                 type="text"
                 name="favoriteGenres"
-                value={formData?.favoriteGenres?.join(', ')}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    favoriteGenres: e.target.value.split(',').map((genre) => genre.trim()),
-                  })
-                }
+                value={formData.favoriteGenres.join(', ')}
+                onChange={(e) => {
+                  const genres = e.target.value.split(',').map(genre => genre.trim());
+                  setFormData({ ...formData, favoriteGenres: genres });
+                }}
               />
             </label>
+
             <button type="submit">Actualizar Perfil</button>
           </form>
         ) : (

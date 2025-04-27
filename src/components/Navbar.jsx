@@ -19,7 +19,6 @@ const Navbar = () => {
             {user ? (
               <>
                 <li><Link to="/profile">Perfil</Link></li>
-                <li><Link to="/books">Libros</Link></li>
                 <li><Link to="/my-books">Mis Libros</Link></li>
                 <li><Link to="/tasks">Tareas</Link></li>
                 <li><button onClick={handleLogout}>Cerrar sesión</button></li>

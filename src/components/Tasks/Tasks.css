@@ -1,0 +1,208 @@
+
+/* Contenedor principal de las tareas */
+.tasks-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-alt-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilo para la tarjeta de libro (book-card) */
+.book-card {
+    display: flex;
+    background-color: var(--background-color); /* Fondo claro del root */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 500px; /* Máximo tamaño de la tarjeta */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para la imagen de la portada del libro */
+  .book-card img {
+    width: 100px; /* Ancho fijo para la imagen */
+    height: 150px; /* Altura fija para la imagen */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 16px; /* Separación entre la imagen y el contenido */
+  }
+  
+  /* Contenedor para el texto */
+  .book-card .text-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%; /* Limita el ancho del texto */
+    font-family: var(--font-primary);
+  }
+  
+  /* Título del libro */
+  .book-card strong {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color-primary);
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Autor y descripción */
+  .book-card font {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Estilo para los botones (editar y eliminar) */
+  .book-card button.submit-button {
+    background-color: var(--primary-color); /* Usamos el color principal */
+    color: var(--text-color-white);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .book-card button.submit-button:hover {
+    background-color: var(--secondary-color); /* Color para hover */
+  }
+  
+  /* Botón de eliminar */
+  .book-card button.submit-button:last-child {
+    background-color: var(--tertiary-color);
+  }
+  
+  .book-card button.submit-button:last-child:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Asegura que los botones estén alineados correctamente */
+  .book-card .button-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  /* Estilos del contador de tareas */
+  .task-counter {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-color-primary);
+  }
+  
+  /* Estilos del filtro de tareas */
+  .filter-select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 200px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+  }
+  
+  /* Formulario de tarea */
+  .task-form {
+    margin-bottom: 24px;
+  }
+  
+  .task-form input,
+  .task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--background-alt-color);
+    color: var(--text-color-primary);
+  }
+  
+  /* Estilo del botón de agregar o actualizar tarea */
+  .task-form button {
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .task-form button:hover {
+    background-color: var(--tertiary-color);
+  }
+  
+  /* Estilo de la lista de tareas */
+  .task-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: var(--background-color);
+  }
+  
+  .task-item .task-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-item .task-info strong {
+    margin-right: 8px;
+  }
+  
+  .task-item input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Botones de acción en cada tarea */
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: var(--tertiary-color);
+    color: var(--text-color-white);
+  }
+  
+  .delete-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color-white);
+  }
+  
+  .edit-btn:hover {
+    background-color: #e0a900;
+  }
+  
+  .delete-btn:hover {
+    background-color: #0094cc;
+  }

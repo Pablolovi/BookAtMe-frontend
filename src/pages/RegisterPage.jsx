@@ -3,6 +3,7 @@ import { register } from '../services/authService';
 import { useNavigate } from 'react-router';
 
 const Register = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,7 +18,7 @@ const Register = () => {
         }
 
         try {
-            await register({ email, password });
+            await register({ name, email, password });
             navigate('/login');
         } catch (error) {
             console.error('Error al registrar el usuario', error);
@@ -28,6 +29,13 @@ const Register = () => {
         <div className='register-container'>
             <h2>Registarse como usuario</h2>
             <form onSubmit={handleRegister}>
+                <input
+                   type="text"
+                   value={name}
+                   onChange={(e) => setName(e.target.value)}
+                   placeholder="Nombre completo"
+                   required
+                />
                 <input
                    type='email'
                    value={email}

@@ -1,170 +1,121 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Colores */
+  --primary-color: #ff6f00;
+  --secondary-color: #00b0ff;
+  --tertiary-color: #ffab40;
+  --background-color: #f9f9f9;
+  --background-alt-color: #f3f3f3;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Texto */
+  --text-color-primary: #333333;
+  --text-color-secondary: #7b8c8d;
+  --text-color-white: #F5F5F5;
+  --text-color-light: #bdc3c7;
+  --text-color-highlight: #ff6f00;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Tipografía */
+  --font-primary: 'poppins', sans-serif;
+  --font-secondary: 'roboto', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* General Styles */
 body {
+  background-color: var(--background-color);
+  font-family: var(--font-primary);
+  color: var(--text-color-primary);
   margin: 0;
+  padding: 0;
+}
+
+.navbar {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/*PopularAuthors*/
-.popular-authors {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.popular-authors h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.authors-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.author-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.author-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-.book-covers {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-  overflow-x: auto;
-}
-
-.book-covers img {
-  height: 60px;
-  border-radius: 4px;
-}
-
-/*RecomndedAuthors*/
-.recommended-books {
-  padding: 40px 20px;
-  background-color: #fff;
-  text-align: center;
-}
-
-.recommended-books h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.books-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.book-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: left;
-  overflow: hidden;
-}
-
-.book-cover {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.book-card h3 {
-  font-size: 1.2rem;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-
-.book-card p {
-  font-size: 1rem;
-  color: #666;
-}
-
-.book-genre {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #888;
+.navbar-logo {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-/*resultadosBúsqueda*/
-.search-results {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
-.search-results h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--text-color-white);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: var(--secondary-color);
+}
+
+.navbar-links button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color-white);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navbar-links button:hover {
+  color: var(--secondary-color);
+}
+
+/* Contenedor de los botones de hashtags */
+.hashtag-buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center; /* Centra los botones verticalmente */
+  flex-wrap: wrap; /* Permite que los botones se ajusten a varias líneas si es necesario */
+  gap: 10px; /* Espacio entre los botones */
+  margin: 10px 0; /* Márgenes en la parte superior e inferior */
+}
+
+/* Estilo para los botones de hashtag */
+.hashtag-buttons button {
+  background-color: var(--background-alt-color); /* Fondo usando la variable de color del root */
+  color: var(--text-color-primary); /* Color de texto utilizando la variable primaria */
+  padding: 8px 16px; /* Espaciado dentro del botón */
+  border-radius: 20px; /* Bordes redondeados */
+  border: 1px solid var(--text-color-light); /* Borde sutil utilizando un color más claro */
+  font-size: 1rem; /* Tamaño de la fuente */
+  font-weight: 500; /* Peso de la fuente */
+  cursor: pointer; /* Cursor de mano para indicar que es clickeable */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Estilo al pasar el ratón por encima (hover) */
+.hashtag-buttons button:hover {
+  background-color: var(--primary-color); /* Fondo usando la variable primaria al hacer hover */
+  color: var(--text-color-white); /* Texto blanco al hacer hover */
+  border-color: var(--primary-color); /* Borde del color primario al hacer hover */
+}
+
+/* Estilo cuando el botón está activo (seleccionado) */
+.hashtag-buttons button:active {
+  background-color: var(--tertiary-color); /* Fondo más oscuro usando el color terciario */
+  border-color: var(--tertiary-color); /* Borde más oscuro usando el color terciario */
+}
+
+/* Estilo para los botones deshabilitados */
+.hashtag-buttons button:disabled {
+  background-color: var(--background-color); /* Fondo gris claro usando la variable del root */
+  color: var(--text-color-light); /* Texto gris claro */
+  border-color: var(--text-color-light); /* Borde gris claro */
+  cursor: not-allowed; /* Desactiva el cursor de mano */
 }
 
 .results-container {
@@ -172,76 +123,36 @@ button:focus-visible {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  align-items: flex-start;
 }
 
-.book-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.book-cover {
-  width: 100%;
-  height: auto;
+.result-card {
+  width: 100%; /* Asegura que se ajuste dentro del contenedor */
+  max-width: 300px; /* Establece un límite de ancho máximo para cada tarjeta */
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden; /* Evita el desbordamiento de contenido */
 }
 
-.book-card h3 {
-  font-size: 1.2rem;
-  margin-top: 15px;
-  margin-bottom: 5px;
+.result-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap; /* Evita que el título se divida en varias líneas */
+  text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
+  overflow: hidden; /* Asegura que el texto largo no afecte el tamaño de la tarjeta */
 }
 
-.book-card p {
-  font-size: 1rem;
-  color: #666;
-}
-
-.book-genre {
-  display: block;
-  margin-top: 10px;
+.result-card p {
   font-size: 0.9rem;
-  color: #888;
-  font-weight: bold;
+  color: var(--text-color-secondary);
+  line-height: 1.5;
+  max-height: 100px; /* Limita el texto de la descripción */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Muestra "..." si el texto excede el área disponible */
 }
-
-/* App.css o index.css */
-
-.profile-container {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
 
 @media (prefers-color-scheme: light) {
   :root {
