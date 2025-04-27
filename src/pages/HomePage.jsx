@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PopularAuthors from '../components/PopularAuthors/PopularAuthors';
 import RecommendedBooks from '../components/RecommendedBooks/RecommendedBooks';
-
 import { searchForExternalBooks } from '../services/bookService';
 
 const Home = () => {
